@@ -8,6 +8,14 @@
 10 30 40 60 70 80 //
 10 30 40 50 
 
+Linear searhc = O(n)
+Binary Search = o(lg n)
+selection sort = O(n^2)
+insertion sortO (n^2)
+
+
+
+
 ON EXAM KNOW THE CODE FOR THE DIFFERENT SORTS. */
 
 #include <iostream>
