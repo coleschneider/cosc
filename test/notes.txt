@@ -1,0 +1,24 @@
+Searching and Sorting
+
+Searching = means finding where a particular datum is in a data structure.
+
+Sorting = means rearranging a data structure so that
+it is in order from lowest to highest or highest to lowest.
+
+
+Two searches:
+1. Linear Search
+2. Binary Search
+Indices
+
+0   1   2   3   4   5   6   7
+Values
+40  80  10  30  20  60  70  50
+
+x[4]
+
+find(x, 20, 8) return 4
+Parameters
+Look in array x, find value 20, there are 8 items in this array
+
+find(x, 90, 8) returns -1
