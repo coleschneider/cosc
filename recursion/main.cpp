@@ -9,7 +9,8 @@
             NODE
             |
         fact(3)
-
+            |
+only send cupp the function but not the call in main
 
         */
 #include <iostream>
