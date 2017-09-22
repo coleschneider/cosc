@@ -6,13 +6,10 @@ using namespace std;
   Assume that array v has length numItems. */
 
   int numEven(const int v[], int numItems) {
-    static int count = 0;
-   
     if(numItems < 0) {
        return -1;
    } else if (v[numItems - 1] % 2 == 0) {
-  
-    return numEven(v, numItems - 1) + v[numItems -1];   
+    return numEven(v, numItems - 1) + 1;   
 } else {
     return numEven(v, numItems - 1);
    
@@ -22,7 +19,7 @@ using namespace std;
    
 
   int main(int argc, char const * argv[]) {
-    int x[6] = {3, 8, 1, 2, 5, 4};
+    int x[6] = {3, 8, 1, 7, 5, 4};
     int val = numEven(x, 6);
     cout<<val<<endl;
     return 0;
