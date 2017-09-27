@@ -13,12 +13,14 @@
 only send cupp the function but not the call in main
 
         */
+#include <cassert>
 #include <iostream>
 using namespace std;
 
 
 
 long long int fact(int n) {
+    assert(n >= 0); //design by contract
     if (n == 0) { //base case
         return 1;
     } else {

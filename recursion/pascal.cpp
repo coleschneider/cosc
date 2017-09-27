@@ -16,9 +16,31 @@ using namespace std;
 1 4 6 4 1
 1 5 10 10 5 1
 1 6 15 20 15 6 1    binom(7, 4) == 20
+
+1
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1
+1 50 10 10 5 1
+
+
+                                                b(5, 3)
+                                                /     \
+                                               /        \
+                                            b(4,3)  b(4, 2)
+                                            /   \
+                                          /      \
+                                        b(3,3)  b(3, 2)
+                                                /   \
+                                               /     \
+                                            b(4,3)  b(3, 2)
+
+                                            
+
 */
 
-
+//memorization = storing the result of a recursive computation for future use
 int binom(int n, int k) {
     if(k == 1 || n ==k) {
         return 1;
