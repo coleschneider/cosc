@@ -1,0 +1,22 @@
+Eaxam One Items
+1. C++ Syntax
+    - review programming lab problems
+    (switch statement, ternary operator,)
+    -(write a statement that does this or and expression etc)
+2. Iterative Searches and Sorts
+    -write code for them
+    -explain them
+    -diagram using meit sort taxonomy
+    -name the Big Os(worst case only)
+3. Recursive Functions
+    -Write code (study Hw problems or similar)
+    -Diagram Recursion trees
+    -Diagram Stack frames
+    -Know what happens when u call a Functions
+    -Call by value vs. call by reference vs. call by constant ref? (how does stack 
+    change), identify call by parameter
+4. Recursive Searches and Sorts
+-Quick Sort
+-Merge Sort (no code)
+-Duplicate the meritt sort taxonomy
+-(probably insertion or selection sort)
