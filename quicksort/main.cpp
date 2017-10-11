@@ -2,8 +2,11 @@
 using namespace std;
 
 void swap(int v[], int a, int b) {
+                //20
     int temp = v[a];
+            //40
     v[a] = v[b];
+            //20
     v[b] = temp;
 }
 
@@ -11,6 +14,7 @@ void quicksort(int v[], int start, int end) {
 //split
     if (start < end) {      //keep recursing
         int key = v[start];
+        //cout << key <<endl;
         int edge = start + 1;
         for (int i = start + 1; i <= end; i++) {
             if (v[i] <= key) {

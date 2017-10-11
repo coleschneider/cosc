@@ -2,26 +2,16 @@
 using namespace std;
 
 
-const int SIZE = 5;
+/*
+recursive idea:
+base case - if is less than or equal to 1 no need to sort
+*/
 
-
-void print(int v[], int numItems) {
-    for (int i = 0; i < numItems; i++) {
-        cout << v[i] << " ";
-    }
-    cout << endl;
-}
-void sort(int v[], int n)
-{
-    // Base case
-    if (n <= 1)
+void sort(int v[], int n) {
+    if (n <= 1) {
         return;
- 
-    // Sort first n-1 elements
-    sort( v, n-1 );
- 
-    // Insert last element at its correct position
-    // in sorted vay.
+    } 
+    sort(v, n - 1);
     int last = v[n-1];
     int j = n-2;
  
@@ -35,16 +25,14 @@ void sort(int v[], int n)
     }
     v[j+1] = last;
 }
- 
 
 
-int main() {
- int x[SIZE] = {10, 40, 76, 23, 7};
-
-print(x, SIZE);
-sort(x, SIZE);
-print(x, SIZE);
-
-return 0;
+int main () {
+    int x[] = {5, 4, 7, 2, 6, 1, 3};
+   sort(x, 7);
+    for(int i = 0; i < 7; i++) {
+        cout << x[i]<<" ";
+    }
+    cout<<endl;
 
 }
