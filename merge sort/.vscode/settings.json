@@ -5,6 +5,7 @@
         "iterator": "cpp",
         "memory": "cpp",
         "string": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "ios": "cpp"
     }
 }
