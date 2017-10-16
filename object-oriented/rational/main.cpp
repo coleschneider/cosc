@@ -14,5 +14,6 @@ int main() {
     cout<<"x + y = "<<x + y<<endl;
     cout<< "The reciprocal of x is "<<x.reciprocal()<<endl;
     cout<< "The reciprocal of y is "<<y.reciprocal()<<endl;
+    cout<<x<< " = "<<x.toDouble()<<endl;
     return 0;
 }
