@@ -10,9 +10,12 @@ int main () {
     Circle c(2.5);
     cout<<"Rectangle"<<endl;
     cout<<"Area: "<< r.area()<<endl;
-    cout << "perimeter: "<<r.perimeter()<<endl;
+    cout << "Perimeter: "<<r.perimeter()<<endl;
     cout<<"Circle"<<endl;
-    cout<<"area"<<c.area()<<endl;
-    cout<<"Perimeter"<<c.perimeter()<<endl;
+    cout<<"Area: "<<c.area()<<endl;
+    cout<<"Perimeter: "<<c.perimeter()<<endl;
     return 0;
 }
+
+//g++ -c Circle.cpp
+//g++ main.cpp Rectangle.o Circle.o 
