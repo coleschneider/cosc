@@ -10,39 +10,39 @@ function merge (arr, left, mid, right) {
 	var rightArray = [rightSide];
 
 	for (i = 0; i < leftSide; i++) {
-		Left[i] = arr[left + i];
+		left[i] = arr[left + i];
 	}
 	for (j = 0; j <rightSide; j++) {
-		Right[i] = arr[mid + 1 + j];
+		right[i] = arr[mid + 1 + j];
 	}
 	i = 0;
 	j = 0;
 	k = left;
 
 	while (i < leftSide && j < rightSide) {
-		if (Left[i] <= Right[j]) {
-			arr[k] = Left[i];
+		if (left[i] <= right[j]) {
+			arr[k] = left[i];
 			i++;
 		} else {
-			arr[k] = Right[J];
+			arr[k] = right[j];
 			j++;
 		}
 		k++;
 	}
 	while (i < leftSide) {
-		array[k] = Left[i];
+		arr[k] = left[i];
 		j++;
 		k++;
 	}
 	while (i < leftSide) {
-		array[k] = Left[i];
+		arr[k] = left[i];
 		j++;
 		k++;
 	}
 }
 
 function mergeSort(arr, left, right) {
-	debugger
+	
 	if (left < right) {
 
 		var mid = Math.floor((left + right) / 2);
@@ -58,6 +58,7 @@ function mergeSort(arr, left, right) {
 
 var data = [1, 3, 2, 5, 4];
 
-mergeSort(data, 0, 5)
+mergeSort(data, 0, 5);
 
+console.log(data[1]);
 
