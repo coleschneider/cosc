@@ -65,11 +65,11 @@ void mergeSort(int array[], int left, int right)
 }
 
 int main() {
-    int x[] = {1, 3, 2, 5, 4};
+    int x[] = {1, 3, 2, 5, 4, 8, 20, 17};
 
-    mergeSort(x, 0, 5);
+    mergeSort(x, 0, 8);
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 8; i++) {
         cout<<x[i]<<" ";
 
     }
