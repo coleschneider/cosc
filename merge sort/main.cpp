@@ -27,6 +27,7 @@ j = 0;
 k = left;
 
 while (i < leftSide && j < rightSide) {
+    //cout<<leftSide<<endl;
     if (Left[i] <= Right[j]) {
         array[k] = Left[i];
         i++;
@@ -34,6 +35,14 @@ while (i < leftSide && j < rightSide) {
         array[k] = Right[j];
         j++;
     }
+    /*
+    for (int i = 0; i < 8; i++) {
+        cout<<array[i]<<" ";
+
+    }
+    cout << " ";
+
+    */
     //increment k
     k++;
 }
