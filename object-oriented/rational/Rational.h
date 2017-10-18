@@ -26,6 +26,17 @@ public:
 ostream &operator <<(ostream &os, const Rational &rhs);
 
 Rational operator +(const Rational &lhs, const Rational &rhs);
+//subtraction
+Rational operator -(const Rational &lhs, const Rational &rhs);
+Rational operator *(const Rational &lhs, const Rational &rhs);
+//negation
+Rational operator -(const Rational &rhs);
+Rational operator /(const Rational &lhs, const Rational &rhs);
+
+bool operator ==(const Rational &lhs, const Rational &rhs);
+bool operator >(const Rational &lhs, const Rational &rhs);
+
+
 
 //operator means infix operator
 //cout << x;os will be cout, and rhs will be x

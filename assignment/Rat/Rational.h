@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 class Rational {
 private:
     int _num;

@@ -1,6 +1,7 @@
 //Rational.cpp
 
 #include "Rational.h"
+using namespace std;
 
 Rational::Rational() { //default constructor
     _num = 0;
@@ -51,6 +52,35 @@ Rational operator +(const Rational &lhs, const Rational &rhs) {
     int rightNum = rhs.numerator() * lhs.denominator();
     Rational answer(leftNum + rightNum, denom);
     return answer;
+}
+
+Rational operator -(const Rational &lhs, const Rational &rhs) {
+    return lhs + (-rhs);
+}
+
+//negation
+
+Rational operator -(const Rational &rhs) {
+    int numNum = rhs.numerator() * -1;
+    int denomNum = rhs.denominator();
+    return Rational(numNum, denomNum);
+}
+
+Rational operator *(const Rational &lhs, const Rational &rhs) {
+    int num = lhs.numerator() * rhs.numerator();
+    int denom = lhs.denominator() * rhs.denominator();
+    return Rational(num, denom);
+}
+
+Rational operator /(const Rational &lhs, const Rational &rhs) {
+    return lhs * rhs.reciprocal();
+}
+bool operator ==(const Rational &lhs, const Rational &rhs) {
+    return lhs.numerator() == rhs.numerator() && lhs.denominator() == rhs.denominator();
+}
+
+bool operator >(const Rational &lhs, const Rational &rhs) {
+    return (lhs.toDouble() - rhs.toDouble() > 0);
 }
 
 //instead of x - y
