@@ -11,7 +11,7 @@ int main() {
     Rational y(1, 2);
     cout<<"x = "<<x<<endl;
     cout<<"y= "<<y<<endl;
-    cout<<"x + y = "<<x + y<<endl;
+    cout<<"x + y = "<< x + y <<endl;
     cout<< "The reciprocal of x is "<<x.reciprocal()<<endl;
     cout<< "The reciprocal of y is "<<y.reciprocal()<<endl;
     cout<<x<< " = "<<x.toDouble()<<endl;
