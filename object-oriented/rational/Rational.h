@@ -37,6 +37,8 @@ bool operator ==(const Rational &lhs, const Rational &rhs);
 bool operator >(const Rational &lhs, const Rational &rhs);
 
 
+int gcd(int m, int n);
+int abs(int x);
 
 //operator means infix operator
 //cout << x;os will be cout, and rhs will be x

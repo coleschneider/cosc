@@ -1,6 +1,7 @@
 //Rational.cpp
 
 #include "Rational.h"
+
 using namespace std;
 
 Rational::Rational() { //default constructor
@@ -13,10 +14,40 @@ Rational::Rational(int numerator) {
     _denom = 1;
 }
 
+
+int abs(int x) {
+    if (x >= 0) {
+        return x;
+    } else {
+        return -x;
+    }
+}
+
+int gcd(int m, int n) {
+    m = abs(m);
+    n = abs(n);
+    if (n == 0) {
+        return m;
+    } else {
+        return gcd(n, m % n);
+    }
+}
+
 Rational::Rational(int numerator, int denominator) {
+    int sign;
+    if(numerator * denominator >= 0) {
+        sign = 1;
+    } else {
+        sign = -1;
+    }
+
+    numerator = abs(numerator);
+    denominator = abs(denominator);
+
+    int divisor = gcd(numerator, denominator);
    //add math to simplify numerator and denominator
-    _num = numerator;
-    _denom = denominator;
+    _num = numerator / divisor * sign;
+    _denom = denominator / divisor;
     //put simplification code in here to reduce
 }
 

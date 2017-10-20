@@ -1,8 +1,12 @@
-#include <Rational.h>
+//Rational.cpp
 
-Rational::Rational() {
+#include "Rational.h"
+
+using namespace std;
+
+Rational::Rational() { //default constructor
     _num = 0;
-    _denom = 0;
+    _denom = 1;
 }
 
 Rational::Rational(int numerator) {
@@ -10,9 +14,41 @@ Rational::Rational(int numerator) {
     _denom = 1;
 }
 
+
+int abs(int x) {
+    if (x >= 0) {
+        return x;
+    } else {
+        return -x;
+    }
+}
+
+int gcd(int m, int n) {
+    m = abs(m);
+    n = abs(n);
+    if (n == 0) {
+        return m;
+    } else {
+        return gcd(n, m % n);
+    }
+}
+
 Rational::Rational(int numerator, int denominator) {
-    _num = numerator;
-    _denom = denominator;
+    int sign;
+    if(numerator * denominator >= 0) {
+        sign = 1;
+    } else {
+        sign = -1;
+    }
+
+    numerator = abs(numerator);
+    denominator = abs(denominator);
+
+    int divisor = gcd(numerator, denominator);
+   
+    _num = numerator / divisor * sign;
+    _denom = denominator / divisor;
+    
 }
 
 int Rational::numerator() const {
@@ -23,16 +59,18 @@ int Rational::denominator() const {
     return _denom;
 }
 
-double Rational::toDouble() const {
-    return _num * 1.0 / _denom;   
-}
-
-Rational Rational::reciprocal() const {
+Rational Rational::reciprocal() const { //const in header file so they have to match
     Rational temp(_denom, _num);
     return temp;
 }
 
-ostream &operator <<(ostream &os, const Rational &rhs) {
+
+double Rational::toDouble() const {
+    return _num * 1.0 / _denom;
+    
+}
+
+ostream &operator <<(ostream &os, const Rational &rhs) { 
     os << rhs.numerator()<<"/"<<rhs.denominator();
     return os;
 }
@@ -46,27 +84,34 @@ Rational operator +(const Rational &lhs, const Rational &rhs) {
 }
 
 Rational operator -(const Rational &lhs, const Rational &rhs) {
+    return lhs + (-rhs);
+}
 
+//negation
+
+Rational operator -(const Rational &rhs) {
+    int numNum = rhs.numerator() * -1;
+    int denomNum = rhs.denominator();
+    return Rational(numNum, denomNum);
 }
 
 Rational operator *(const Rational &lhs, const Rational &rhs) {
-
+    int num = lhs.numerator() * rhs.numerator();
+    int denom = lhs.denominator() * rhs.denominator();
+    return Rational(num, denom);
 }
 
 Rational operator /(const Rational &lhs, const Rational &rhs) {
-
+    return lhs * rhs.reciprocal();
+}
+bool operator ==(const Rational &lhs, const Rational &rhs) {
+    return lhs.numerator() == rhs.numerator() && lhs.denominator() == rhs.denominator();
 }
 
-Rational operator -(const Rational &rhs) {
-    int num = rhs.numerator() / rhs.denominator();
-    if (num < 0) {
-        return -num;
-    } else {
-        return num;
-    }
+bool operator >(const Rational &lhs, const Rational &rhs) {
+    return (lhs.toDouble() - rhs.toDouble() > 0);
 }
 
-/*
-int gcd(int m, int n);
-int abs(int x);
-*/
+//instead of x - y
+//if already defined negation operator then x + -y
+//same w division

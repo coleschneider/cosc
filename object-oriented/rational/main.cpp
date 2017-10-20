@@ -20,5 +20,16 @@ int main() {
     cout<< "The reciprocal of x is "<<x.reciprocal()<<endl;
     cout<< "The reciprocal of y is "<<y.reciprocal()<<endl;
     cout<<x<< " = "<<y.toDouble()<<endl;
+    Rational a(9, 12);
+    Rational b(36, 30);
+    Rational c(-20, -30);
+    Rational d(20, -30);
+    Rational e(-20, 30);
+    cout << "9/12 == "<<a<<endl;
+    cout << "36/30 == "<<b<<endl;
+    cout << "-20/-30 == "<<c<<endl;
+    cout << "20/-30 == "<<d<<endl;
+    cout << "-20/30 == "<<e<<endl;
+
     return 0;
 }
