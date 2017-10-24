@@ -12,4 +12,5 @@ int main() {
     t.push(x);
     cout << s;
     cout<<t;
+    return 0;
 }
