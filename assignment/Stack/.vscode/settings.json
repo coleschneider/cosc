@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "atomic": "cpp",
+        "ios": "cpp",
+        "string": "cpp",
+        "system_error": "cpp"
     }
 }

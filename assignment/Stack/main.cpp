@@ -13,6 +13,8 @@ int main() {
     cout << s <<endl;
     cout<<t << endl;
     cout<<s.size()<<endl;
-    cout<<s.top()<<endl;
+   cout<<s.top()<<endl;
+    s.clear();
+    cout<<s<<endl;
     return 0;
 }

@@ -11,15 +11,16 @@ bool Stack::isEmpty() const {
     return _top == -1;
 }
 bool Stack::isFull() const {
-    return ( _top == SIZE);
+    return _top == SIZE - 1;
 }
 void Stack::push(int val) {
     assert(!isFull());
     _body[++_top] = val;
+
 }
 int Stack::pop() {
     assert(!isEmpty());
-   return _top = _top + 1;
+   return _body[_top--];
 }
 
 int Stack::size() const {
@@ -29,15 +30,16 @@ int Stack::size() const {
 
 int Stack::top() const {
     assert(!isEmpty());
-    return _body[_top - 1];
+    return _body[_top];
 }
-/*
+
 void Stack::clear() {
-    
+   assert(!isEmpty());
+    _top = -1;
 }
-*/
+
 void Stack::toStream(ostream &os) const {
-    for (int i = _top + 1; i > -1; i--) {
+    for (int i = _top; i >= 0; i--) {
         os << _body[i] << endl;
     }
     os << "--------" << endl;
