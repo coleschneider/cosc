@@ -1,10 +1,10 @@
 #include <iostream>
-#include "StackA.h"
+#include "Stack.h"
 using namespace std;
 
 int main() {
-    StackA s;
-    StackA t;
+    Stack s;
+    Stack t;
     s.push(3);
     s.push(8);
     s.push(4);
@@ -12,5 +12,7 @@ int main() {
     t.push(x);
     cout << s <<endl;
     cout<<t << endl;
+    cout<<s.size()<<endl;
+    cout<<s.top()<<endl;
     return 0;
 }

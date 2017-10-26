@@ -1,0 +1,42 @@
+Infix       3 + 4
+Prefix      + 3 4 
+PostFix     3 4 +
+
+3 4 5 + * equivalent to     3 * 4 + 5
+
+always going to have one fewer operators than numbers
+
+Postfix expressions can be evaluated using a stack
+Algorithm:
+
+(1) scan the postfix expression from left to right.
+(2) when you encounter an operand push it to the stack
+(3) when you encounter an operator, pop twice, operate on what you popped,
+    then push the result to the stack
+(4) When you've scanned entire input one item wil be on the stack.
+    it's the value of the postfix expression
+
+Examples:
+    3 4 +
+        so it's 7. Remember that stacks typically have to do with computer memory
+    8 5 6 * 2 + + 3 - 8 *
+        So its 296
+
+Sidenote: rpn calculator. Stands for reverse polish notation
+
+Examples of infix to postix conversion
+****WILL BE ON EXAM TWO!!!****
+3 + 4
+    IS 3 4 +
+3 + 4 * 5
+    IS 4 5 * 3 +
+    OR 3 4 5 * +
+6 * 2 + 3 * 4 + 1
+    IS 6 2 * 3 4 * + 1 +
+
+6 * 2 + 3 * 4 + 1 => 6 2 * 3 4 * + 1 +
+    check precedents so 6 2 then *, then pop and put onto output
+    pop off *, then push on the +
+        *           stack
+    ____+_
+    ''''''''

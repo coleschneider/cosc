@@ -1,3 +1,12 @@
+//LIKE ONE BIG IF STATEMENT
+//copying variables from iostream twice
+
+#ifndef STACK_H
+#define STACK_H
+
+//eg
+//#define CAPACITY 8 is like saying const int capacity = 8
+
 #include <iostream>
 #include <cassert>
 using namespace std;
@@ -19,6 +28,6 @@ public:
 };
 
 ostream &operator <<(ostream &os, const StackA &rhs);
-
+#endif
 //StackA s;
 //cout << s;
