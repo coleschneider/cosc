@@ -1,47 +1,36 @@
-#include <iostream>
-using namespace std;
+const int CAPACITY = 8;
 
-#ifndef QUEUEA_H
-#define QUEUEA_H
+  template<class T>
+  class QueueA {
+  private:
+      T body[CAPACITY + 1];
+      int _front, _rear;
 
-const int SIZE = 8;
+  public:
+      QueueA();
+      // Post: This queue is initialized to be empty.
 
-template <class T>
-class QueueA {
-private: 
-    T _body[SIZE];
-    int _front;
-    int rear;
-public:
-    QueueA();
-    void enqueue(int val);
-    T dequeue();
-    T size() const;
-    void clear();
-    bool isEmpty() const;
-    bool isFull() const;
+      bool isEmpty() const;
+      // Post: true is returned if this queue is empty; otherwise, false is returned.
 
-};
+      bool isFull() const;
+      // Post: true is returned if this queue is full; otherwise, false is returned.
 
-template <class T> 
+      void enqueue(const T &val);
+      // Pre: This queue is not full.
+      // Post: val is stored at the tail of this queue.
 
-QueueA::QueueA() {
-    _front = 0; //image front and rear. Both will be point at 0 at first
-    _rear = 0;
-}
+      T dequeue();
+      // Pre: This queue is not empty.
+      // Post: The head value in this queue is removed and returned.
 
-void QueueA::enqueue(int val) {
+      T headOf() const;
+      // Pre: This queue is not empty.
+      // Post: The head value from this queue is returned.
 
-}
+      Queue<T> reverse() const;
+      // Post: Returns a new Queue containing the same elements of this queue in reverse order
 
-T QueueA::dequeue() const {
-
-}
-
-T QueueA::size() const {
-
-}
-
-
-
-#endif
+      void toStream(ostream &os) const;
+      // Post: All the items on this queue from tail to head are written to os.
+  };
