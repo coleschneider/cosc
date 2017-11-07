@@ -18,7 +18,10 @@ int main(int argc, char const *argv[]) {
   q.enqueue(61);
   cout << q << endl;
   cout << q.reverse() << endl;
+  int y = q.dequeue();
+  //cout << y << endl;
   cout << q.headOf() << endl;
   cout << q.size() << endl;
+
   return 0;
 }
