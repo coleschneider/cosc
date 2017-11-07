@@ -26,11 +26,11 @@ public:
 
 ostream &operator <<(ostream &os, const Matrix &rhs);
 
-// Matrix operator +(const Matrix &lhs, const Matrix &rhs);
-// Matrix operator -(const Matrix &lhs, const Matrix &rhs);
-// Matrix operator -(const Matrix &rhs);
-// Matrix operator *(const Matrix &lhs, const Matrix &rhs); //matrix multiplication
-// Matrix operator *(double lhs, const Matrix &rhs); //scalar multiplication
-// Matrix operator *(const Matrix &lhs, double rhs); //scalar multiplication
+Matrix operator +(const Matrix &lhs, const Matrix &rhs);
+Matrix operator -(const Matrix &lhs, const Matrix &rhs);
+Matrix operator -(const Matrix &rhs);
+Matrix operator *(const Matrix &lhs, const Matrix &rhs); //matrix multiplication
+Matrix operator *(double lhs, const Matrix &rhs); //scalar multiplication
+Matrix operator *(const Matrix &lhs, double rhs); //scalar multiplication
 
 //syntax of static method: Matrix.identity(3);

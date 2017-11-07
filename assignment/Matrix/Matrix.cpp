@@ -36,7 +36,7 @@ double Matrix::at(int i, int j) const{
 
 void Matrix::set(int i, int j, double val){
   // m.set(2, 3, 4.5);
-  assert(i >= 0 && j >= 0 && i < _rows && j < _columns);
+ // assert(i >= 0 && j >= 0 && i < _rows && j < _columns);
   _body[i][j] = val;
 }
 
@@ -65,10 +65,78 @@ Matrix Matrix::identity(int n){
   return id;
 }
 
+
+Matrix operator +(const Matrix &lhs, const Matrix &rhs) {
+  Matrix result(lhs.rows(), lhs.columns());
+  
+    for(int c = 0; c < lhs.columns(); ++c) {
+      for(int r = 0; r < lhs.rows(); ++r) {
+        result.set(r, c, lhs.at(r, c) + rhs.at(r, c));
+    }
+  }
+    return result;
+}
+
+Matrix operator -(const Matrix &lhs, const Matrix &rhs) {
+  Matrix result(lhs.rows(), lhs.columns());
+  
+    for(int c = 0; c < lhs.columns(); ++c) {
+      for(int r = 0; r < lhs.rows(); ++r) {
+        result.set(r, c, lhs.at(r, c) - rhs.at(r, c));
+    }
+  }
+    return result;
+}
+
+Matrix operator -(const Matrix &rhs) {
+  Matrix result(rhs.rows(), rhs.columns());
+  
+    for(int c = 0; c < rhs.columns(); ++c) {
+      for(int r = 0; r < rhs.rows(); ++r) {
+        result.set(r, c, -1 * rhs.at(r, c));
+    }
+  }
+    return result;
+}
+
+
+Matrix operator *(const Matrix &lhs, const Matrix &rhs) {
+  Matrix result(lhs.rows(), rhs.columns());
+  Matrix lhst = lhs.transpose();  
+  for(int c = 0; c < lhst.columns(); ++c) {
+    for(int r = 0; r < lhst.rows(); ++r) {
+      result.set(c, r, lhst.at(c, r) * rhs.at(c, r));
+  }
+}
+  return result;
+}
+
+
+Matrix operator *(double lhs, const Matrix &rhs) {
+  Matrix result(rhs.rows(), rhs.columns());
+  
+    for(int c = 0; c < rhs.columns(); ++c) {
+      for(int r = 0; r < rhs.rows(); ++r) {
+        result.set(r, c, lhs * rhs.at(r, c));
+    }
+  }
+    return result;
+} 
+Matrix operator *(const Matrix &lhs, double rhs) {
+  Matrix result(lhs.rows(), lhs.columns());
+  
+    for(int c = 0; c < lhs.columns(); ++c) {
+      for(int r = 0; r < lhs.rows(); ++r) {
+        result.set(r, c, lhs.at(r, c) * rhs);
+    }
+  }
+    return result;
+}
+
 ostream &operator <<(ostream &os, const Matrix &rhs){
   for (int i = 0; i < rhs.rows(); i++){
     for (int j = 0; j < rhs.columns();j++){
-      os.width(12);
+      os.width(4);
       os << rhs.at(i, j);
     }
     os << endl;

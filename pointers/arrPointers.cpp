@@ -17,5 +17,17 @@ int main() {
    cout << "*(valptr + 1) == " <<*(valptr + 1) << endl;
     // (address in valptr) + (1 * size of an int)
     //use parenthesis. Otherwise changes precedence.
+    cout << "*(valptr + 2) ==" << *(valptr + 2) << endl;
+    //there is no bounds checking in array access
+
+    //cout << "valptr == " << valptr++ << endl;
+    //points to address of 7 in array
+
+        valptr += 2;
+        cout << valptr - vals << endl;
+        //number of values between these addresses
+
+
     return 0;
+
 }

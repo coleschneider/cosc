@@ -19,5 +19,17 @@ int main() {
     *p = 20;
     cout << "i == " << i << endl;
     //puts 20 in i
+
+    //Ways to initialize pointers:
+    //1.    
+    int *ptr = NULL;
+    //this thing points at nothing. Good thing to do when intitializing pointers
+    //2. The way we just did it
+    // the initial value must have the correct type
+
+    //special value in c++ 11 keyword nullptr
+        //int *ptr = nullptr
+
+
     return 0;
 }
