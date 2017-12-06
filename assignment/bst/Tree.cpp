@@ -1,87 +1,81 @@
 #include "Tree.h"
 
-Node::Node(int val){
-    _val = val;
-    _left = nullptr;
-    _right = nullptr;
-
+Node::Node(int val) {
+  _val = val;
+  _left = nullptr;
+  _right = nullptr;
 }
 
-Node::~Node(){
-    if(_left){
-        delete _left;
-    }
-     if (_right){
-        delete _right;
-    }
-    _left = nullptr;
-    _right = nullptr;
+Node::~Node() {
+  if (_left != nullptr) {
+    delete _left;
+  }
+  if (_right != nullptr) {
+    delete _right;
+  }
+  _left = nullptr;
+  _right = nullptr;
 }
 
-Tree::Tree(){
-    _root = nullptr;
+Tree::Tree() {
+  _root = nullptr;
 }
 
-Tree::~Tree(){
-   if(_root){
-       delete _root;
-   }
-   _root = nullptr;
+Tree::~Tree() {
+  if (_root != nullptr) {
+    delete _root;
+  }
+  _root = nullptr;
 }
-
 
 void Tree::insert(int val) {
-   Node *nodeToInsert = new Node(val);
-    Node *current = _root;
-    Node *previous = current;
-    while (current){
-        previous = current;
-            if (val < current->_val){
-                current = current->_left;
-            } else {
-                current = current->_right;
-            }
-            //starting with an empty tree
-            if (!previous){
-                _root = nodeToInsert;
-            }
-         else if (val < previous->_val){
-            previous->_left = nodeToInsert;
-        } else {
-            previous->_right = nodeToInsert;
-        }
+  Node *temp = new Node(val);
+  Node *p = _root;
+  Node *q = p;
+  while(p != nullptr) {
+    q = p;
+    if (val < p->_val) {
+      p = p->_left;
+    } else {
+      p = p->_right;
     }
+  }
+  if (q == nullptr) {
+    _root = temp;
+  } else if (val < q->_val) {
+    q->_left = temp;
+  } else {
+    q->_right = temp;
+  }
 }
 
-void Tree::inOrder(){//works together with Tree->Node
-    //call helper
-    if(_root){
-        _root->inOrder();
-    }
-    cout << endl;
-} 
-void Node::inOrder() {
-    if (_left){
-        _left->inOrder();
-    }
-    cout << _val << " ";
-    if (_right){
+void Tree::inOrder() const {
+  if (_root != nullptr) {
+    _root->inOrder();
+  }
+  cout << endl;
+}
+
+void Node::inOrder() const{
+  if (_left != nullptr) {
+    _left->inOrder();
+  }
+  cout << _val << " ";
+  if (_right != nullptr) {
     _right->inOrder();
-    }
-    cout << _val << " ";
+  }
 }
 
 int Tree::size() const {
-if (_root) {
+  if (_root !=nullptr) {
     return _root->size();
-    } else {
-        return 0;
-    }
+  } else {
+    return 0;
+  }
 }
 
-
 int Node::size() const {
-    int numLeft = _left ? _left->size() : 0;
-    int numRight = _right ? _right->size() : 0;
-    return numLeft + numRight + 1;
+  int numLeft = (_left != nullptr ? _left->size() : 0);
+  int numRight = (_right != nullptr ? _right->size() : 0);
+  return  numLeft + numRight + 1;
 }

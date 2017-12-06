@@ -30,14 +30,14 @@ Inorder:
 
 
 int main() {
-    Tree *t = new Tree();
-    t->insert(60);
-    t->insert(30);
-    t->insert(90);
-    t->insert(40);
-    t->insert(80);
-    t->inOrder();
-    delete t;
+    Tree *tree = new Tree();
+    tree->insert(60);
+    tree->insert(30);
+    tree->insert(90);
+    tree->insert(40);
+    tree->insert(80);
+    tree->inOrder();
+    //deletreee t;
     
     return 0;
 }

@@ -16,7 +16,7 @@ public:
     Node(int val);
     ~Node();
     int size() const;
-    void inOrder(); //works together with Tree->inOrder()
+    void inOrder() const; //works together with Tree->inOrder()
 };
 
 class Tree {
@@ -25,11 +25,9 @@ private:
     Node *_root;
 public:
     Tree();
-    //Tree(const Tree &tree);
     ~Tree();
     void insert(int val);
-    void inOrder();
-    //bool isLeafless();
+    void inOrder() const;
     int size() const;
     
 };
