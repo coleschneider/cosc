@@ -65,11 +65,28 @@ BinarySearchTree.prototype.contains = function(val) {
 
 var bst = new BinarySearchTree();
 
-bst.push(3);
-bst.push(2);
+bst.push(3); //root
+bst.push(2);//left
 bst.push(4);
 bst.push(1);
 bst.push(5);
 
 console.log(bst)
+console.log(bst.root.right)
+console.log(bst.root.left)
+console.log(bst.root.Node)
 
+
+function printAll(){
+	printAllHelper(tree.root);
+}
+
+
+function printAllHelper(tree){
+	if(tree){
+		//return tree.val;
+		printAllHelper()
+		printAllHelper(tree.root.right)
+		printAllHelper(tree.root.left)
+	}
+}

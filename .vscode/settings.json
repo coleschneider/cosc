@@ -4,6 +4,8 @@
         "initializer_list": "cpp",
         "ios": "cpp",
         "iterator": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iosfwd": "cpp",
+        "__locale": "cpp"
     }
 }

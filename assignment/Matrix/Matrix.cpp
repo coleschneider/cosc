@@ -36,7 +36,7 @@ double Matrix::at(int i, int j) const{
 
 void Matrix::set(int i, int j, double val){
   // m.set(2, 3, 4.5);
- // assert(i >= 0 && j >= 0 && i < _rows && j < _columns);
+ assert(i >= 0 && j >= 0 && i < _rows && j < _columns);
   _body[i][j] = val;
 }
 
@@ -101,6 +101,7 @@ Matrix operator -(const Matrix &rhs) {
 
 
 Matrix operator *(const Matrix &lhs, const Matrix &rhs) {
+  assert(lhs.rows() == rhs.columns());
   Matrix result(lhs.rows(), rhs.columns());
   Matrix lhst = lhs.transpose();  
   for(int c = 0; c < lhst.columns(); ++c) {
@@ -135,7 +136,7 @@ Matrix operator *(const Matrix &lhs, double rhs) {
 
 ostream &operator <<(ostream &os, const Matrix &rhs){
   for (int i = 0; i < rhs.rows(); i++){
-    for (int j = 0; j < rhs.columns();j++){
+    for (int j = 0; j < rhs.columns(); j++){
       os.width(4);
       os << rhs.at(i, j);
     }

@@ -15,6 +15,5 @@ Matrix c = a + b;
     cout << 2 * a << endl;
     cout << b * 3.0 << endl;
     cout << a * b << endl;
-    
     return 0;
 }

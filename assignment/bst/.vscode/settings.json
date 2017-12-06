@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "iterator": "cpp",
+        "cassert": "cpp",
+        "cstddef": "cpp",
+        "ostream": "cpp",
+        "bitset": "cpp",
+        "functional": "cpp",
+        "memory": "cpp",
+        "tuple": "cpp",
+        "iostream": "cpp",
+        "utility": "cpp",
+        "ios": "cpp"
+    }
+}
