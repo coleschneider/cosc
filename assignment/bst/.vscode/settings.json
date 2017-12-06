@@ -10,6 +10,8 @@
         "tuple": "cpp",
         "iostream": "cpp",
         "utility": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "initializer_list": "cpp",
+        "string": "cpp"
     }
 }

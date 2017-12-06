@@ -15,6 +15,7 @@ private:
 public:
     Node(int val);
     ~Node();
+    int size() const;
     void inOrder(); //works together with Tree->inOrder()
 };
 
@@ -29,7 +30,8 @@ public:
     void insert(int val);
     void inOrder();
     //bool isLeafless();
-    void inOrderHelper(Node *treeNode);
+    int size() const;
+    
 };
 
 
