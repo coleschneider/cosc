@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "cassert": "cpp",
-        "iosfwd": "cpp",
-        "iostream": "cpp",
-        "ostream": "cpp",
-        "ratio": "cpp"
-    }
-}
