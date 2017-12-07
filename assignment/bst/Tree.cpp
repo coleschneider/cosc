@@ -67,11 +67,10 @@ void Node::inOrder() const{
 }
 
 int Tree::size() const {
-  if (_root !=nullptr) {
-    return _root->size();
-  } else {
-    return 0;
-  }
+ if (_root == nullptr){
+   return 0;
+ }
+ return _root->size();
 }
 
 int Node::size() const {
@@ -79,3 +78,125 @@ int Node::size() const {
   int numRight = (_right != nullptr ? _right->size() : 0);
   return  numLeft + numRight + 1;
 }
+
+/*Homework
+  1.Preorder Traversal - prints the root first, then left child, then right child
+  2. Postorder Traversal - Left child, right child, then root
+
+*/
+
+void Tree::preOrder() const {
+  if (_root->_left != nullptr){
+    _root->preOrder();
+   
+  } 
+  cout << endl;
+}
+
+void Node::preOrder() const {
+cout << _val << " ";
+  if (_left){
+    _left->preOrder();
+  } 
+  
+  if (_right){
+    _right->preOrder();
+  }
+  
+}
+
+void Tree::postOrder() const {
+  if(_root){
+    _root->postOrder();
+  }
+  cout << endl;
+}
+
+
+void Node::postOrder() const {
+  if(_left){
+    _left->postOrder();
+  }
+
+  if(_right) {
+    _right->postOrder();
+  }
+  cout << _val << " ";
+}
+
+
+
+int Tree::numLeaves() const {
+  if(_root == nullptr){
+    return 0;
+  }
+  return _root->numLeaves();
+}
+
+
+int Node::numLeaves() const {
+  //numLeaves on left
+  
+  int numLeftLeaves = (!_left ? _left->numLeaves() : 1);
+  int numRightLeaves = (!_right ? _right->numLeaves() : 1);
+  
+  return numRightLeaves + numLeftLeaves + 1;
+}
+
+
+
+int Tree::numInternals() const {
+if (_root){
+   return _root->numInternals() - _root->numLeaves();
+   } 
+   return 1;
+}
+
+int Node::numInternals() const {
+ int numLeftInternals = (_left ? _left->numInternals() : 0);
+  int numRightInternals = (_right ? _right->numInternals() : 0);
+
+
+return numLeftInternals + numRightInternals + 1;
+}
+
+int Tree::height() const {
+  
+  if (_root){
+  return _root->height();
+  } 
+  return 0;
+}
+
+int Node::height() const {
+int leftHeight = (_left ? _left->height() : 0 );
+int rightHeight = (_right ? _right->height() : 0 );
+  if(leftHeight > rightHeight){
+   return leftHeight + 1;
+  } else {
+   return rightHeight + 1;
+  }
+
+}
+
+
+
+bool Tree::contains(int value) const {
+  Node *current = _root;
+  Node *previous = nullptr;
+
+  while(current && current->_val != value){
+    previous = current;
+    if (value < current->_val){
+      current = current->_left;
+    } else {
+      current = current->_right;
+    }
+  }
+  if (!current){
+    return false;
+  } else {
+    return true;
+  }
+}
+

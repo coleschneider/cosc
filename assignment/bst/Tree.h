@@ -1,6 +1,8 @@
 #ifndef TREE_H
 #define TREE_H
-
+#include <iostream>
+#include <cassert>
+using namespace std;
 
 class Node {
     friend class Tree;
@@ -41,3 +43,5 @@ public:
     int height() const;
     bool contains(int value) const;
 };
+
+#endif

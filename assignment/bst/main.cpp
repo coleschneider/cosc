@@ -29,15 +29,68 @@ Inorder:
 */
 
 
+
+
 int main() {
+
     Tree *tree = new Tree();
-    tree->insert(60);
-    tree->insert(30);
-    tree->insert(90);
-    tree->insert(40);
+    tree->insert(50);
+    tree->insert(20);
     tree->insert(80);
+    tree->insert(30);
+    tree->insert(60);
+    tree->insert(70);
+    tree->insert(10);
+    tree->insert(40);
+    tree->insert(55);
+    cout << "preOrder traversal: ";
+    tree->preOrder();
+    cout << '\n';
+    cout << "inOrder traversal: ";
     tree->inOrder();
-    //deletreee t;
+    cout << '\n';
+    cout << "postOrder traversal: ";
+    tree->postOrder();
+    cout << '\n';
+    int n;
+    cout << "enter a number: "<< endl;
+    
+    cin >> n;
+//dimensions
+    int s = tree->size();
+    cout << "Size of tree: ";
+    cout << s << endl;
+    
+    int h = tree->numLeaves();
+    cout << "Number of leaves: ";
+    cout << h << endl;
+    
+    int l = tree->numInternals();
+    cout << "Number of internals: ";
+    cout << l << endl;
+
+    int height = tree->height();
+    cout << "height of tree: ";
+    cout << height << endl;
+
+
+  if (tree->contains(n)) {
+        cout << "Contains value: "<< n << endl;
+    } else {
+        cout << "not in tree" << endl;
+    }   
+/*
+    //testing
+cout << "testing range of values for contains method: "<< '\n';
+for (long long i = 1; i < 100; i++){
+     if (tree->contains(i)) {
+        cout << "Contains value: "<< i << endl;
+    } else {
+        cout << "not in tree" << endl;
+    }   
+}
+ */
+    delete tree;
     
     return 0;
 }
