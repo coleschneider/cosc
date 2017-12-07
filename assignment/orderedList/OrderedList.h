@@ -22,8 +22,9 @@ private:
 public:
     OrderedList();
     OrderedList(const OrderedList &list);
-    //~OrderedList();
+    ~OrderedList();
     void insert(int val); // no preconditions
+    void remove(int val);
     int size() const;
     bool isEmpty() const;
     void toStream(ostream &os) const;

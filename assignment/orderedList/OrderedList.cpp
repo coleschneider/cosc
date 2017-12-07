@@ -43,67 +43,63 @@ bool OrderedList::isEmpty() const {
 }
 
 
-void OrderedList::insert(int val) {
-    Node *temp = new Node(val);
-    Node *p = _head;
-    Node *previous = p;
-    while (p != nullptr && p->_val < val) {
-        previous = p;
-        p = p->_next;
-    }
-    temp->_next = p;
-    if (p == previous) {
-        _head = temp;
 
-    } else {
-    //temp->_next = p; could have this but happens in both cases
-    previous->_next = temp; //handles the case where val is greater than p's val
-    }
+void OrderedList::insert(int val) {
+  Node *_temp = new Node(val);
+  Node *p = _head;
+  Node *q = p;
+  while (p != nullptr && p->_val < val ) {   // short circuit evaluation , switched doesn't work
+    q = p;
+    p = p->_next;     // like the p++ but bc the elements
+  }
+  _temp->_next = p;
+  if (p == q) {
+    _head = _temp;
+  } else {
+    q->_next = _temp;   // this q is a trailer/chaser
+  }
 }
 
 
 OrderedList::OrderedList(const OrderedList &list){
-    _head = nullptr;
-    Node *temp = list->_head;
-    while(temp != nullptr){
-        insert(temp->_val);
-        temp = temp->_next;
-    }
+ 
+ 
+  Node *p = list._head;
+
+  //_head = (p->_val);
+  while (p != nullptr) {
+    //p = p->_next;
+
+     insert(p->_val);
+    p = p->_next;
+  }
+   _head = nullptr;
+ // p = nullptr;
+
 }
 
 
-//OLD INSERT CODE:
+//remove node if found, otherwise do nothing
 
-/*
-void OrderedList::insert(int val) {
-   Node *nodeToInsert = new Node(val);
-   if(_head == nullptr){
-        Node *nodeToInsert = new Node(val);
-        _head = nodeToInsert;
-        return;
-    } else {
+void OrderedList::remove(int val){
+    assert(_head != nullptr);
     Node *current = _head;
-    Node *previous = nullptr;
-    while(current != nullptr) {
-        if(val < current->_val){
-            Node *nodeToInsert = new Node(val);
-            nodeToInsert->_next = current;
-            if (previous == nullptr) {
-                Node *nodeToInsert = new Node(val);
-                _head = nodeToInsert;
-            } else {
-                previous->_next = current;
-            }
-            return;
-        }
+    Node *previous = current;
+    while(current && current->_val < val){
         previous = current;
         current = current->_next;
-    }
-    //Node *nodeToInsert = new Node(val);
-    previous->_next = nodeToInsert;
+    } 
+    previous = previous->_next;
+    if (current->_val == val){
+        previous = current->_next;
+        delete current;
+    } else if(!current){
+        previous = nullptr;
+        delete current;
+    } else {
+        return;
     }
 }
-*/
 
 void OrderedList::toStream(ostream &os) const {
     Node *current = _head;
