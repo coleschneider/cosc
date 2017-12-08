@@ -6,3 +6,6 @@ search
 bst
 Queue
 orderedList
+
+
+drawing but ignorer preorder postorder

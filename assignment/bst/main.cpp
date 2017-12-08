@@ -34,15 +34,15 @@ Inorder:
 int main() {
 
     Tree *tree = new Tree();
-    tree->insert(50);
-    tree->insert(20);
-    tree->insert(80);
-    tree->insert(30);
     tree->insert(60);
-    tree->insert(70);
-    tree->insert(10);
+    tree->insert(30);
+    tree->insert(90);
+    tree->insert(50);
     tree->insert(40);
-    tree->insert(55);
+    tree->insert(70);
+    tree->insert(120);
+    tree->insert(100);
+    
     cout << "preOrder traversal: ";
     tree->preOrder();
     cout << '\n';

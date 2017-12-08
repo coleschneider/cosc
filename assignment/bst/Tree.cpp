@@ -136,11 +136,27 @@ int Tree::numLeaves() const {
 
 int Node::numLeaves() const {
   //numLeaves on left
-  
+  /*
   int numLeftLeaves = (!_left ? _left->numLeaves() : 1);
+  //numLEaves on right
   int numRightLeaves = (!_right ? _right->numLeaves() : 1);
+  */
+int leftLeaves = 0;
+ int rightLeaves = 0;
+  //class code
+if (!_left && !_right){
+  return 1;
+}
   
-  return numRightLeaves + numLeftLeaves + 1;
+  if (_left){
+    leftLeaves = _left->numLeaves();
+  }
+  if (_right){
+    rightLeaves = _right->numLeaves();
+  }
+
+  return leftLeaves + rightLeaves;
+
 }
 
 
