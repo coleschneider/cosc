@@ -18,6 +18,7 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "string": "cpp",
-        "__locale": "cpp"
+        "__locale": "cpp",
+        "iostream": "cpp"
     }
 }

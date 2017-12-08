@@ -9,17 +9,18 @@ int main() {
 
     cout << "the firstList is: " << endl;
     cout << *firstList;
-    OrderedList *copyList = new OrderedList(*firstList);
+    firstList->remove(8);
+    cout << *firstList;
 
+    OrderedList *copiedList = new OrderedList(*firstList);
+    cout << "The copiedList is: " << endl;
+    cout << *copiedList;
     firstList->remove(6);
     cout << *firstList;
-//copy constructor
-OrderedList *copyListTwo = new OrderedList(*firstList);
-cout << "the copied list is: " << endl;
-cout << *copyList;
-cout << "the copied list 2 is: " << endl;
-cout << *copyListTwo;
-    //delete firstList;
-    //delete copyList;
+    cout << *copiedList;
+    ///delete node from first list 
+    //to see if the val of copied list changes
+delete firstList;
+
     return 0;
 }

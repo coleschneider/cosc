@@ -79,17 +79,6 @@ int main() {
     } else {
         cout << "not in tree" << endl;
     }   
-/*
-    //testing
-cout << "testing range of values for contains method: "<< '\n';
-for (long long i = 1; i < 100; i++){
-     if (tree->contains(i)) {
-        cout << "Contains value: "<< i << endl;
-    } else {
-        cout << "not in tree" << endl;
-    }   
-}
- */
     delete tree;
     
     return 0;

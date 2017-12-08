@@ -60,45 +60,31 @@ void OrderedList::insert(int val) {
   }
 }
 
-
-OrderedList::OrderedList(const OrderedList &list){
- 
- 
+OrderedList::OrderedList(const OrderedList &list) { // copy constructor
+  _head = nullptr;
   Node *p = list._head;
-
-  //_head = (p->_val);
   while (p != nullptr) {
-    //p = p->_next;
-
-     insert(p->_val);
+    insert(p->_val);
     p = p->_next;
   }
-   _head = nullptr;
- // p = nullptr;
-
 }
-
 
 //remove node if found, otherwise do nothing
 
 void OrderedList::remove(int val){
-    assert(_head != nullptr);
-    Node *current = _head;
-    Node *previous = current;
-    while(current && current->_val < val){
-        previous = current;
-        current = current->_next;
-    } 
-    previous = previous->_next;
-    if (current->_val == val){
-        previous = current->_next;
-        delete current;
-    } else if(!current){
-        previous = nullptr;
-        delete current;
-    } else {
-        return;
-    }
+   Node *temp = _head;
+   Node *previous;
+   assert(temp !=nullptr);
+   if(temp !=nullptr && temp->_val == val){
+        _head = temp->_next;
+        delete temp;
+   } while(temp != nullptr && temp->_val !=val){
+       previous = temp;
+       temp = temp->_next;
+   }
+   
+previous->_next = temp->_next;
+delete temp;
 }
 
 void OrderedList::toStream(ostream &os) const {
