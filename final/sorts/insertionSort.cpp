@@ -33,11 +33,18 @@ void insertionSort(int v[], int numItems){
 
 void recursiveInsertionSort(int v[], int numItems){
     //base case - stop when j = 1
-    if (j <= 1){
+    if (numItems <= 1){
         return;
     }
     //sort the first n-1 elements
-    recursiveInsertionSort(v, j-1);
+    recursiveInsertionSort(v, numItems-1);
+
+    int lastElement = v[numItems - 1];
+    int val = numItems - 2;
+    while(numItems >= 1 && lastElement < v[val]) {
+        v[val] = v[val - 1];
+        val--;
+    }
 }
 
 

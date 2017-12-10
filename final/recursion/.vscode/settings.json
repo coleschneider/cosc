@@ -5,8 +5,8 @@
         "ios": "cpp",
         "iterator": "cpp",
         "string": "cpp",
-        "iosfwd": "cpp",
         "__locale": "cpp",
-        "ratio": "cpp"
+        "memory": "cpp",
+        "utility": "cpp"
     }
 }
