@@ -13,19 +13,36 @@ the left and rotates the first element of v to the right
 
 */
 
+void swap(double arr[], int a){
+    int temp = arr[a];
+    arr[a] = arr[a -1];
+    arr[a - 1] = temp;
+}
 
-void rotateLeft(double v[], int numItems){
+
+void rotateRight(double arr[], int numItems){
     //base case
-    if(numItems == 0){
-        return v[0] = v[1];
+    if(numItems < 1 ){
+        return;
     }
-    return v[numItems] = v[numItems - 1];
+    swap(arr, numItems);
+    rotateRight(arr, arr[(numItems - 1) - 1]);
 }
 
 int main(){
     
-    
-    
-    
+double x[] = {1, 2, 3, 4, 5};
+
+for(int i = 0; i < 5; i++){
+    cout << x[i] << " ";
+}
+ rotateRight(x, 4);
+
+cout << endl;
+
+
+for(int i = 0; i < 5; i++){
+    cout << x[i] << " ";
+}
     return 0;
 }
